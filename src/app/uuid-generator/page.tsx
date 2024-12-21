@@ -31,29 +31,40 @@ const formatUuid = (uuid: string, format: UuidFormat): string => {
 };
 
 export default function UuidGenerator() {
-  const [count, setCount] = useState<number>(() => {
-    const saved = localStorage.getItem("uuidCount");
-    return saved ? parseInt(saved) : 1;
-  });
+  const [count, setCount] = useState<number>(1);
+  const [version, setVersion] = useState<UuidVersion>("4");
+  const [format, setFormat] = useState<UuidFormat>("default");
+  const [includeTimestamp, setIncludeTimestamp] = useState<boolean>(false);
   const [uuids, setUuids] = useState<string[]>([]);
-  const [version, setVersion] = useState<UuidVersion>(() => {
-    const saved = localStorage.getItem("uuidVersion");
-    return (saved as UuidVersion) || "4";
-  });
-  const [format, setFormat] = useState<UuidFormat>(() => {
-    const saved = localStorage.getItem("uuidFormat");
-    return (saved as UuidFormat) || "default";
-  });
-  const [includeTimestamp, setIncludeTimestamp] = useState<boolean>(() => {
-    const saved = localStorage.getItem("includeTimestamp");
-    return saved ? JSON.parse(saved) : false;
-  });
 
+  // Load state from localStorage in the browser
   useEffect(() => {
-    localStorage.setItem("uuidCount", count.toString());
-    localStorage.setItem("uuidVersion", version);
-    localStorage.setItem("uuidFormat", format);
-    localStorage.setItem("includeTimestamp", JSON.stringify(includeTimestamp));
+    if (typeof window !== "undefined") {
+      const savedCount = localStorage.getItem("uuidCount");
+      const savedVersion = localStorage.getItem("uuidVersion");
+      const savedFormat = localStorage.getItem("uuidFormat");
+      const savedIncludeTimestamp = localStorage.getItem("includeTimestamp");
+
+      setCount(savedCount ? parseInt(savedCount) : 1);
+      setVersion((savedVersion as UuidVersion) || "4");
+      setFormat((savedFormat as UuidFormat) || "default");
+      setIncludeTimestamp(
+        savedIncludeTimestamp ? JSON.parse(savedIncludeTimestamp) : false,
+      );
+    }
+  }, []);
+
+  // Save state to localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("uuidCount", count.toString());
+      localStorage.setItem("uuidVersion", version);
+      localStorage.setItem("uuidFormat", format);
+      localStorage.setItem(
+        "includeTimestamp",
+        JSON.stringify(includeTimestamp),
+      );
+    }
   }, [count, version, format, includeTimestamp]);
 
   const generateUuids = useCallback(() => {
