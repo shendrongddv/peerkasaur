@@ -20,6 +20,12 @@ export default function Home() {
         <Button asChild>
           <Link href="/password-generator-2">Password v2</Link>
         </Button>
+        <Button asChild>
+          <Link href="/case-converter">Case Converter</Link>
+        </Button>
+        <Button asChild>
+          <Link href="/case-converter-lodash">Case Converter Lodash</Link>
+        </Button>
       </div>
     </main>
   );
