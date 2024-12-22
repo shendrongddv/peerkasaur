@@ -9,6 +9,7 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
+  IceCreamCone,
   Map,
   PieChart,
   Settings2,
@@ -185,6 +186,11 @@ const data = {
       name: "Birthday Info",
       url: "/birthday-info",
       icon: Cake,
+    },
+    {
+      name: "Ice Cream POS",
+      url: "/ice-cream-pos",
+      icon: IceCreamCone,
     },
   ],
 };
