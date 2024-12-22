@@ -12,6 +12,7 @@ import {
   IceCreamCone,
   Map,
   PieChart,
+  Quote,
   Settings2,
   SquareTerminal,
 } from "lucide-react";
@@ -186,6 +187,11 @@ const data = {
       name: "Birthday Info",
       url: "/birthday-info",
       icon: Cake,
+    },
+    {
+      name: "Quote Generator",
+      url: "/quote-generator",
+      icon: Quote,
     },
     {
       name: "Ice Cream POS",
