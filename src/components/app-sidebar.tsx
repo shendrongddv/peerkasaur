@@ -5,6 +5,7 @@ import {
   AudioWaveform,
   BookOpen,
   Bot,
+  Cake,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -179,6 +180,11 @@ const data = {
       name: "Multi Hash",
       url: "/multi-hash",
       icon: PieChart,
+    },
+    {
+      name: "Birthday Info",
+      url: "/birthday-info",
+      icon: Cake,
     },
   ],
 };
