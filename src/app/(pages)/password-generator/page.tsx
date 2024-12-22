@@ -95,7 +95,7 @@ export default function PasswordGenerator() {
   };
 
   return (
-    <section>
+    <section className="py-8">
       <div className="container">
         <Card className="w-full">
           <CardHeader>
