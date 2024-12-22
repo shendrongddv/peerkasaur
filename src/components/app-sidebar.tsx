@@ -58,35 +58,39 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "ULID Generator",
+          title: "Strong Password",
+          url: "/password-generator",
+        },
+        {
+          title: "Strong Password v2",
+          url: "/password-generator-2",
+        },
+        {
+          title: "ULID",
           url: "/ulid-generator",
         },
         {
-          title: "UUID Generator",
+          title: "UUID",
           url: "/uuid-generator",
         },
         {
-          title: "CUID Generator",
+          title: "CUID",
           url: "/cuid-generator",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Converter",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Case Converter",
+          url: "/case-converter",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "Case Converter + Lodash",
+          url: "/case-converter-lodash",
         },
       ],
     },
@@ -154,6 +158,18 @@ const data = {
       icon: Map,
     },
   ],
+  converters: [
+    {
+      name: "Case Converter",
+      url: "/case-converter",
+      icon: Frame,
+    },
+    {
+      name: "Case Converter + Lodash",
+      url: "/case-converter-lodash",
+      icon: PieChart,
+    },
+  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -163,6 +179,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
+        <NavProjects projects={data.converters} />
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
       </SidebarContent>
