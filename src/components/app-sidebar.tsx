@@ -6,6 +6,7 @@ import {
   BookOpen,
   Bot,
   Cake,
+  Coffee,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -197,6 +198,11 @@ const data = {
       name: "Ice Cream POS",
       url: "/ice-cream-pos",
       icon: IceCreamCone,
+    },
+    {
+      name: "Coffee Shop POS",
+      url: "/coffee-shop-pos",
+      icon: Coffee,
     },
   ],
 };
